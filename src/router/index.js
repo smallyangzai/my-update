@@ -8,7 +8,7 @@ import loginone from '@views/loginone/LoginOne'
 import logintwo from "@views/logintwo/LoginTwo"
 import help from '@views/help/Help'
 import businessjoin from "@views/businessjoin/BusinessJoin"
-import City from '@components/Homelist/Citylist'
+import City from '@views/city/Citylist'
 
 Vue.use(Router)
 

@@ -29,7 +29,7 @@ export  default  {
         }
 
 
-        //打印
+
        cityList.sort((a,b)=>{
            if(a.index>b.index){
                return 1;

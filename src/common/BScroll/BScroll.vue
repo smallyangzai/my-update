@@ -9,10 +9,13 @@
     export default {
         name: "BScroll",
         mounted(){
+
+
+
             this.scroll = new BScroll(this.$refs.wrapper,{
                 probeType:1,
-                scrollX:true
-                // pullUpLoad:true
+                scrollX:true,
+                pullUpLoad:true
             });
 
         },

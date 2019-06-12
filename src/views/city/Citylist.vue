@@ -1,5 +1,5 @@
 <template>
-    
+    <!-- <BScroll> -->
         <div class="citylist" id="City" ref="scroll">
                 <div class="rightbox">
                     <ul class="cityitem">
@@ -13,10 +13,10 @@
                         >{{item.index}}</v-touch>
                     </ul>
                 </div>
-                <div class="current-city">
+                <router-link tag="div"  :to="{name:'home'}" class="current-city">
                    <span>{{$store.state.city.nm}}</span>
                    <span>当前城市</span>
-                </div>
+                </router-link>
                 <div class="history-city" ref="History">
                     <div class="history-title">历史访问城市</div>
                     <div class="history-wrap">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-       
+       <!-- </BScroll> -->
 </template>
 
 <script>
@@ -100,7 +100,7 @@ export default {
 }
 </script>
     
-<style>
+<style scoped>
 
 .citylist{
     background: #f2f2f2;
@@ -114,7 +114,7 @@ export default {
     width: 30px;
     height: 100%;
     background-color: #f9f9f9;
-    z-index: 99;
+    z-index: 999;
 }
 .cityitem{
     position: absolute;
