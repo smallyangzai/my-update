@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <div class="dw-wrap" ><router-link :to="{name:'Citylist'}" tag="a">深圳<span class="iconfont">&#xe611;</span></router-link></div>
+        <div class="dw-wrap" ><router-link :to="{name:'Citylist'}" tag="a">{{$store.state.city.nm}}<span class="iconfont">&#xe611;</span></router-link></div>
         <div class="search">
             <div class="search-wrap">
                 <span class="iconfont">&#xe506;</span><input type="text" value="搜索明星、演出、场馆" onfocus="setStyle()">

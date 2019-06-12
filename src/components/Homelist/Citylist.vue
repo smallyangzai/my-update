@@ -1,18 +1,23 @@
 <template>
     
-        <div class="citylist" id="City">
+        <div class="citylist" id="City" ref="scroll">
                 <div class="rightbox">
                     <ul class="cityitem">
-                        <li>历史</li>
-                        <li>热门</li>
-                        <li v-for="(item,index) in cityList" :key="index" >{{item.index}}</li>
+                        <v-touch tag="li" @tap="toHistory()">历史</v-touch>
+                        <v-touch tag="li" @tap="toHost()">热门</v-touch>
+                        <v-touch 
+                            tag="li"
+                            v-for="(item,index) in cityList" 
+                            v-on:tap="handleTo(index)"
+                            :key="index" 
+                        >{{item.index}}</v-touch>
                     </ul>
                 </div>
                 <div class="current-city">
-                   <span>深圳</span>
+                   <span>{{$store.state.city.nm}}</span>
                    <span>当前城市</span>
                 </div>
-                <div class="history-city">
+                <div class="history-city" ref="History">
                     <div class="history-title">历史访问城市</div>
                     <div class="history-wrap">
                         <span>西安</span>
@@ -20,19 +25,25 @@
                         <span>深圳</span>
                     </div>
                 </div>
-                <div class="hot-city">
+                <div class="hot-city" ref="Host">
                     <div class="hot-title">热门城市</div>
                     <div class="hot-wrap">
                         <span v-for="(item,index) in cityHot" :key="index">{{item.nm}}</span>
                     </div>
                 </div>
-                <div  v-for="(item,index) in cityList" :key="index">
-                    <div class="inital">{{item.index}}</div>
-                    <div class="list">
-                        <div class="showlist" v-for="(data,index) in item.list" :key="index" >{{data.nm}}</div>
+                <div ref="Inital">
+                    <div  v-for="(item,index) in cityList" :key="index" >
+                        <div class="inital">{{item.index}}</div>
+                        <div class="list">
+                            <v-touch 
+                                class="showlist" 
+                                v-for="(data,index) in item.list" 
+                                @tap="positionCity(data)"
+                                :key="index" 
+                            >{{data.nm}}</v-touch>
+                        </div>
                     </div>
                 </div>
-                
             </div>
        
 </template>
@@ -46,8 +57,28 @@ export default {
     },
     methods:{
         ...Vuex.mapActions({
-            actionsCityList:"city/actionsCityList"
+            actionsCityList:"city/actionsCityList",
         }),
+        ...Vuex.mapMutations({
+            mutationsCityToggle:"city/mutationsCityToggle",
+        }),
+        handleTo(index){
+            let item = this.$refs.Inital.querySelectorAll(".inital");
+            this.$refs.scroll.scrollTop = item[index].offsetTop;
+        },
+        toHistory(){
+            let item = this.$refs.History.querySelectorAll(".history-title");
+            this.$refs.scroll.scrollTop = item[0].offsetTop;
+        },
+        toHost(){
+            let iten = this.$refs.Host.querySelectorAll(".hot-title");
+            this.$refs.scroll.scrollTop = iten[0].offsetTop;
+        },
+        positionCity(params){
+            console.log(params);
+            this.$router.push("/home");
+            this.mutationsCityToggle(params)
+        }
     },
     computed:{
         ...Vuex.mapState({
@@ -62,6 +93,8 @@ export default {
 
 .citylist{
     background: #f2f2f2;
+    height:100%;
+    overflow-x: hidden;
 }
 .rightbox{
     position: fixed;

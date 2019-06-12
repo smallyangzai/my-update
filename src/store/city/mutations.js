@@ -49,20 +49,20 @@ export  default  {
         //更改state中的数据
         state.cityList = cityList;
         state.cityHot = cityHot;
-        console.log(cityList);
-        console.log(cityHot);
+        // console.log(cityList);
+        // console.log(cityHot);
 
         window.sessionStorage.setItem("cityList",JSON.stringify(cityList));
         window.sessionStorage.setItem("cityHot",JSON.stringify(cityHot));
         state.cityLoading = false;
 
     },
-    // mutationsCityToggle(state,params){
-    //     state.cityId = params.cityId;
-    //     state.nm = params.nm;
-    //     window.sessionStorage.setItem("nm",params.nm);
-    //     window.sessionStorage.setItem("cityId",params.cityId)
-    // },
+    mutationsCityToggle(state,params){
+        state.cityId = params.cityId;
+        state.nm = params.nm;
+        window.sessionStorage.setItem("nm",params.nm);
+        window.sessionStorage.setItem("cityId",params.cityId)
+    },
     // //城市定位
     // mutationsCityGetLocation(state,params){
     //     state.getLocation = params;
