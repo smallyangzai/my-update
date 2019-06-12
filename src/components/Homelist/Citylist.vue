@@ -28,7 +28,12 @@
                 <div class="hot-city" ref="Host">
                     <div class="hot-title">热门城市</div>
                     <div class="hot-wrap">
-                        <span v-for="(item,index) in cityHot" :key="index">{{item.nm}}</span>
+                        <v-touch 
+                            tag="span"
+                            v-for="(item,index) in cityHot" 
+                            @tap="positionHostCity(item)"
+                            :key="index"
+                        >{{item.nm}}</v-touch>
                     </div>
                 </div>
                 <div ref="Inital">
@@ -36,6 +41,7 @@
                         <div class="inital">{{item.index}}</div>
                         <div class="list">
                             <v-touch 
+                                tag="div"
                                 class="showlist" 
                                 v-for="(data,index) in item.list" 
                                 @tap="positionCity(data)"
@@ -75,7 +81,12 @@ export default {
             this.$refs.scroll.scrollTop = iten[0].offsetTop;
         },
         positionCity(params){
-            console.log(params);
+            // console.log(params);
+            this.$router.push("/home");
+            this.mutationsCityToggle(params)
+        },
+        positionHostCity(params){
+            // console.log(params);
             this.$router.push("/home");
             this.mutationsCityToggle(params)
         }
