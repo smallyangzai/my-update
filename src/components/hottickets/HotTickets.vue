@@ -57,7 +57,7 @@ export default {
 .top{
     height: 44px;
     width: 100%;
-    background-color: #fff;
+    background-color: rgb(207, 155, 155);
     top: 0;
     box-sizing: border-box;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
@@ -94,7 +94,7 @@ export default {
 .ul-list{
     width: 100%;
     background: #fff;
-    padding-top: 44px;
+    margin-top: 94px;
 }
 .actives{
     margin: 0;

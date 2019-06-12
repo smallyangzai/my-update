@@ -3,32 +3,33 @@
      <div class="guess-like__title">猜你喜欢</div>
 
     <div class="guess-like__wrap">
-        <li class="activity" acticle="[object Object]">
+        <li class="activity" acticle="[object Object]" v-for="(item,index) in homeRecord" :key="index">
             <div class="main-top">
                 <a href="#" class="poster-wrap">
                     <div class="video-play" style="background-size: 26px 26px; display: none;">
                         <video class="video"></video>
                     </div>
-                    <div class="poster" data-src="https://img.piaoniu.com/poster/e5fcfda10d24a1a3093092a457c660606538e2f7.jpg" lazy="load" style='background:url(https://img.piaoniu.com/poster/e5fcfda10d24a1a3093092a457c660606538e2f7.jpg)'></div>
+                    <div class="poster" data-src="https://img.piaoniu.com/poster/e5fcfda10d24a1a3093092a457c660606538e2f7.jpg" lazy="load" 
+                    ><img :src="item.recommendContent.poster" ></div>
                 </a>
                 <div class="info">
                     <div class="title-line">
-                        <a href="#" class="title"><span class="city" style>[北京]</span></a>
+                        <a href="#" class="title"><span class="city" style>[北京]</span>{{item.recommendContent.shortname}}</a>
                         <div class="activityTag">
                             <div class="eCard">电</div>
                         </div>
                     </div>
                     <div class="time-address">
-                        <span class="time">2019.04.14 - 07.21</span>
+                        <span class="time">{{item.recommendContent.timeRange}}</span>
                         <span class="split">|</span>
-                        <span class="address">今日美术馆1号馆</span>
+                        <span class="address">{{item.recommendContent.venueName}}</span>
                     </div>
                     <div class="rank">
-                            评分&nbsp;<span>9.0</span>
+                            评分&nbsp;<span>{{item.recommendContent.discountRate}}</span>
                     </div>
                     <div class="price-wrap">
                         <div>
-                            <span class="price">90</span>
+                            <span class="price">{{item.recommendContent.highPrice}}</span>
                             <span class="qi">元起</span>
                         </div>
                         <div class="status-text"></div>
@@ -36,88 +37,11 @@
                     <div class="promotion-info">
                         <ul></ul>
                     </div>
-                    <div class="light-spot">“叶锦添整个艺术生涯的回顾与展望”</div>
+                    <div class="light-spot">{{item.recommendContent.desc}}</div>
                 </div>
             </div>
         </li>
-
-
-        <!-- <li class="activity" acticle="[object Object]">
-                <div class="main-top">
-                    <a href="#" class="poster-wrap">
-                        <div class="video-play" style="background-size: 26px 26px; display: none;">
-                            <video class="video"></video>
-                        </div>
-                        <div class="poster" style="background-image: url(./img/12.jpg);"></div>
-                    </a>
-                    <div class="info">
-                        <div class="title-line">
-                            <a href="#" class="title"><span class="city" style>[北京]</span>"《叶锦添：全观》"</a>
-                            <div class="activityTag">
-                                <div class="eCard">电</div>
-                            </div>
-                        </div>
-                        <div class="time-address">
-                            <span class="time">2019.04.14 - 07.21</span>
-                            <span class="split">|</span>
-                            <span class="address">今日美术馆1号馆</span>
-                        </div>
-                        <div class="rank">
-                                评分&nbsp;<span>9.0</span>
-                        </div>
-                        <div class="price-wrap">
-                            <div>
-                                <span class="price">90</span>
-                                <span class="qi">元起</span>
-                            </div>
-                            <div class="status-text"></div>
-                        </div>
-                        <div class="promotion-info">
-                            <ul></ul>
-                        </div>
-                        <div class="light-spot">“叶锦添整个艺术生涯的回顾与展望”</div>
-                    </div>
-                </div>
-            </li>
-            <li class="activity" acticle="[object Object]">
-                <div class="main-top">
-                    <a href="#" class="poster-wrap">
-                        <div class="video-play" style="background-size: 26px 26px; display: none;">
-                            <video class="video"></video>
-                        </div>
-                        <div class="poster" style="background-image: url(./img/12.jpg);"></div>
-                    </a>
-                    <div class="info">
-                        <div class="title-line">
-                            <a href="#" class="title"><span class="city" style>[北京]</span>"《叶锦添：全观》"</a>
-                            <div class="activityTag">
-                                <div class="eCard">电</div>
-                            </div>
-                        </div>
-                        <div class="time-address">
-                            <span class="time">2019.04.14 - 07.21</span>
-                            <span class="split">|</span>
-                            <span class="address">今日美术馆1号馆</span>
-                        </div>
-                        <div class="rank">
-                                评分&nbsp;<span>9.0</span>
-                        </div>
-                        <div class="price-wrap">
-                            <div>
-                                <span class="price">90</span>
-                                <span class="qi">元起</span>
-                            </div>
-                            <div class="status-text"></div>
-                        </div>
-                        <div class="promotion-info">
-                            <ul></ul>
-                        </div>
-                        <div class="light-spot">“叶锦添整个艺术生涯的回顾与展望”</div>
-                    </div>
-                </div>
-            </li> -->
         </div>
-        
         </div>
         
         
@@ -129,6 +53,7 @@ export default {
     name:"HomeSort",
     created(){
             this.actionsHomeRecord()
+           
     },
     methods:{
         ...Vuex.mapActions({
@@ -138,7 +63,7 @@ export default {
     },
     computed:{
         ...Vuex.mapState({
-            homeRecord:state=>state.home.homeRecord.data
+            homeRecord:state=>state.home.homeRecord
         }),
         
     }
@@ -185,11 +110,14 @@ export default {
 .activity .poster-wrap .poster {
     width: 75px;
     height: 100px;
+    
 }
-.activity .poster {
-    background-size: cover;
-    background-position: 50%;
-}
+ .activity .poster img{
+    /* background-size: cover;
+    background-position: 50%; */
+    width: 75px;
+    height: 100px;
+} 
 .activity .info {
     padding-top: 15px;
     margin-left: 92px;

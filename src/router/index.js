@@ -9,6 +9,7 @@ import logintwo from "@views/logintwo/LoginTwo"
 import help from '@views/help/Help'
 import businessjoin from "@views/businessjoin/BusinessJoin"
 import City from '@components/Homelist/Citylist'
+import hottickets from '@components/hottickets/HotTickets'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
       path:"/City",
       name:"Citylist",
       component:City
-    }
+    },
+    {
+      path:"/HotTickets",
+      name:"hottickets",
+      component:hottickets
+    },
   ]
 })

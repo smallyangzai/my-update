@@ -3,182 +3,29 @@
         <div class="activity-floor">
             <div class="hot-wrap">
                 <div class="iteam">近期热门</div>
-                <a href="#" class="more">全部</a>
+                <router-link :to="{name:'hottickets'}" tag="a" class="more">全部</router-link>
             </div>
             <div class="activities">
                 <div class="wrap">
-                    <div class="activity-floor-item">
+                    <div class="activity-floor-item"  v-for="(item,index) in homeMore" :key="index">
                         <router-link :to="{name:'details'}" tag="a">
                             <div class="poster"
                                 data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                                lazy="loaded" style="background:url(https://img.piaoniu.com/poster/400b8c7a2de09dd943c7deda8c186e7d87d69344.jpg?imageView2/2/w/220/h/164/format/jpg/q/60)">
+                                lazy="loaded" :style="{backgroundImage: 'url(' + item.poster + ')', backgroundSize:'contain'}">
                                 <div class="want-watch">
-                                <div class="num">1582</div>
+                                <div class="num">{{item.wantWatchNum}}</div>
                                 <div class="like"></div>
                             </div>
                     </div>
-                    <div class="name">爱缪上海演唱会</div>
+                    <div class="name">{{item.properName}}</div>
                     <div class="price">
-                        <div class="price-num">￥1019</div>
+                        <div class="price-num">￥{{item.highPrice}}</div>
                         <div class="price-desc">起</div>
                     </div>
                   </router-link>
                 </div>
 
-                <div class="activity-floor-item">
-                    <a href="#">
-                        <div class="poster"
-                            data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                            lazy="loaded" style="background-image: url(./img/2.jpg);">
-                            <div class="want-watch">
-                            <div class="num">1582</div>
-                            <div class="like"></div>
-                        </div>
-                </div>
-                <div class="name">爱缪上海演唱会</div>
-                <div class="price">
-                    <div class="price-num">￥1019</div>
-                    <div class="price-desc">起</div>
-                </div>
-                </a>
-            </div>
-            <div class="activity-floor-item">
-                <a href="#">
-                    <div class="poster"
-                        data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                        lazy="loaded" style="background-image: url(./img/3.jpg);">
-                        <div class="want-watch">
-                        <div class="num">1582</div>
-                        <div class="like"></div>
-                    </div>
-            </div>
-            <div class="name">爱缪上海演唱会</div>
-            <div class="price">
-                <div class="price-num">￥1019</div>
-                <div class="price-desc">起</div>
-            </div>
-            </a>
-        </div>
-        <div class="activity-floor-item">
-            <a href="#">
-                <div class="poster"
-                    data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                    lazy="loaded" style="background-image: url(./img/4.jpg);">
-                    <div class="want-watch">
-                    <div class="num">1582</div>
-                    <div class="like"></div>
-                </div>
-        </div>
-        <div class="name">爱缪上海演唱会</div>
-        <div class="price">
-            <div class="price-num">￥1019</div>
-            <div class="price-desc">起</div>
-        </div>
-        </a>
-    </div>
-    <div class="activity-floor-item">
-        <a href="#">
-            <div class="poster"
-                data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                lazy="loaded" style="background-image: url(./img/5.jpg);">
-                <div class="want-watch">
-                <div class="num">1582</div>
-                <div class="like"></div>
-            </div>
-    </div>
-    <div class="name">爱缪上海演唱会</div>
-    <div class="price">
-        <div class="price-num">￥1019</div>
-        <div class="price-desc">起</div>
-    </div>
-    </a>
-    </div>
-    <div class="activity-floor-item">
-        <a href="#">
-            <div class="poster"
-                data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                lazy="loaded" style="background-image: url(./img/6.jpg);">
-                <div class="want-watch">
-                <div class="num">1582</div>
-                <div class="like"></div>
-            </div>
-    </div>
-    <div class="name">爱缪上海演唱会</div>
-    <div class="price">
-        <div class="price-num">￥1019</div>
-        <div class="price-desc">起</div>
-    </div>
-    </a>
-    </div>
-
-    <div class="activity-floor-item">
-        <a href="#">
-            <div class="poster"
-                data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                lazy="loaded" style="background-image: url(./img/7.jpg);">
-                <div class="want-watch">
-                <div class="num">1582</div>
-                <div class="like"></div>
-            </div>
-    </div>
-    <div class="name">爱缪上海演唱会</div>
-    <div class="price">
-        <div class="price-num">￥1019</div>
-        <div class="price-desc">起</div>
-    </div>
-    </a>
-    </div>
-    <div class="activity-floor-item">
-        <a href="#">
-            <div class="poster"
-                data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                lazy="loaded" style="background-image: url(./img/8.jpg);">
-                <div class="want-watch">
-                <div class="num">1582</div>
-                <div class="like"></div>
-            </div>
-    </div>
-    <div class="name">爱缪上海演唱会</div>
-    <div class="price">
-        <div class="price-num">￥1019</div>
-        <div class="price-desc">起</div>
-    </div>
-    </a>
-    </div>
-    <div class="activity-floor-item">
-        <a href="#">
-            <div class="poster"
-                data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                lazy="loaded" style="background-image: url(./img/9.jpg);">
-                <div class="want-watch">
-                <div class="num">1582</div>
-                <div class="like"></div>
-            </div>
-    </div>
-    <div class="name">爱缪上海演唱会</div>
-    <div class="price">
-        <div class="price-num">￥1019</div>
-        <div class="price-desc">起</div>
-    </div>
-    </a>
-    </div>
-    <div class="activity-floor-item">
-        <a href="#">
-            <div class="poster"
-                data-src="https://img.piaoniu.com/poster/0ae15e872c1ffc63c2f75898911fa44d8bf60f72.jpg?imageView2/2/w/220/h/164/format/jpg/q/60"
-                lazy="loaded" style="background-image: url(./img/11.jpg);">
-                <div class="want-watch">
-                <div class="num">1582</div>
-                <div class="like"></div>
-            </div>
-    </div>
-    <div class="name">爱缪上海演唱会</div>
-    <div class="price">
-        <div class="price-num">￥1019</div>
-        <div class="price-desc">起</div>
-    </div>
-    </a>
-    </div>
+               
     <div class="more">
         <a href="#">
             <div class="poster"></div>
@@ -192,8 +39,25 @@
 </template>
 
 <script>
+import Vuex from 'vuex'
 export default {
-  name: "HomeLikeWrap"
+  name: "HomeLikeWrap",
+   created(){
+        this.actionsHomeMore()
+            
+    },
+    methods:{
+        ...Vuex.mapActions({
+            actionsHomeMore:"more/actionsHomeMore"
+        }),
+        
+    },
+    computed:{
+        ...Vuex.mapState({
+            homeMore:state=>state.more.homeMore
+        }),
+        
+    }
 };
 </script>
 
