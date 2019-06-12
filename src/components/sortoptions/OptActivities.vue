@@ -31,18 +31,18 @@
 <script>
 import Vuex from "vuex"
 export default {
-  name: "SortShow",
+  name: "OptActivities",
   created(){
-    this.actionsOptAll();
+    this.actionsOptActivities();
   },
   methods:{
     ...Vuex.mapActions({
-      actionsOptAll:"sort/actionsOptAll"
+      actionsOptActivities:"sort/actionsOptActivities"
   })
   },
   computed:{
       ...Vuex.mapState({
-          OptAll:state=>state.sort.OptAll,
+          OptActivities:state=>state.sort.OptActivities,
       })
   }
 }

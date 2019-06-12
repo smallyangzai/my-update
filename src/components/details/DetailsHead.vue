@@ -1,6 +1,4 @@
 <template>
-
-      <BScroll>
   <div class="detailshead">
     <div class="head-intro">
       <div class="head-intro-img">
@@ -25,14 +23,14 @@
         </div>
       </div>
       <div class="head-option">
-        <div class="comment1">
+        <router-link :to="{name:'loginone'}" tag="div" class="comment1">
           <span class="iconfont">&#xe707;</span>
           <span class="want">想看</span>
-        </div>
-        <div class="comment2">
+        </router-link>
+        <router-link :to="{name:'loginone'}" tag="div" class="comment2">
           <span class="iconfont">&#xe620;</span>
           <span class="want">评论</span>
-        </div>
+        </router-link>
       </div>
     </div>
     <div class="head-bottom">
@@ -71,8 +69,6 @@
       </div>
     </div>
   </div>
-  
-      </BScroll>
 </template>
 
 <script>

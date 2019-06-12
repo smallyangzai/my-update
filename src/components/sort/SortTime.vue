@@ -5,7 +5,6 @@
             <div class="sorttime-all">全部时间<span class="iconfont">&#xe712;</span></div>
             <div class="sorttime-online">在线选座</div>
         </div>
-        <div class="sorttime-paint"><img src="../../../public/img/xr.png" alt=""></div>
     </div>
 </template>
 
